@@ -1,0 +1,2 @@
+# bitmanip
+Bit manipulation library
