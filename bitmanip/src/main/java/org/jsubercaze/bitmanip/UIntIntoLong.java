@@ -8,7 +8,7 @@ package org.jsubercaze.bitmanip;
  * 
  * 
  * 
- * @author Julien
+ * @author Julien Subercaze
  *
  */
 public class UIntIntoLong extends AbstractBitStorage implements BitStorageI {
@@ -70,18 +70,15 @@ public class UIntIntoLong extends AbstractBitStorage implements BitStorageI {
 	}
 
 	@Override
-	public long setLong(int index, long value, long storage) {
+	public long set(int index, long value, long storage) {
 		checkbounds(index, value);
-		return setQuickLong(index, value, storage);
+		return setQuick(index, value, storage);
 	}
 
-	@Override
-	public long setInt(int index, int value, long storage) {
-		return setLong(index, (long) value, storage);
-	}
+	
 
 	@Override
-	public long setQuickLong(int index, long value, long storage) {
+	public long setQuick(int index, long value, long storage) {
 		long mask = ~masks[index];
 		// Keep the other fields but reset this one
 		storage = storage & (mask);
@@ -93,37 +90,19 @@ public class UIntIntoLong extends AbstractBitStorage implements BitStorageI {
 	}
 
 	@Override
-	public long setQuickInt(int index, long value, long storage) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void setLong(long[] array, int arrayIndex, int index, long value) {
-		// TODO Auto-generated method stub
+	public void set(long[] array, int arrayIndex, int index, long value) {
+		array[arrayIndex] = set(index, value, array[arrayIndex]);
 
 	}
 
 	@Override
-	public void setInt(long[] array, int arrayIndex, int index, long value) {
-		// TODO Auto-generated method stub
+	public void setQuick(long[] array, int arrayIndex, int index, long value) {
+		array[arrayIndex] = setQuick(index, value, array[arrayIndex]);
 
 	}
 
 	@Override
-	public void setQuickLong(long[] array, int arrayIndex, int index, long value) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void setQuickInt(long[] array, int arrayIndex, int index, long value) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public long getLong(int index, long storage) {
+	public long get(int index, long storage) {
 		checkgetbounds(index);
 		return 0;
 	}
@@ -149,8 +128,7 @@ public class UIntIntoLong extends AbstractBitStorage implements BitStorageI {
 
 	@Override
 	public long getLong(long[] array, int arrayIndex, int index) {
-		// TODO Auto-generated method stub
-		return 0;
+		return get(index, array[arrayIndex]);
 	}
 
 	@Override
@@ -161,8 +139,8 @@ public class UIntIntoLong extends AbstractBitStorage implements BitStorageI {
 
 	@Override
 	public long getQuickLong(long[] array, int arrayIndex, int index) {
-		// TODO Auto-generated method stub
-		return 0;
+		return getQuickLong(index, array[arrayIndex]);
+
 	}
 
 	@Override
