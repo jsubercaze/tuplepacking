@@ -2,13 +2,13 @@ package org.jsubercaze.bitmanip;
 
 interface BitStorageI {
 
-	public void setLong(int index, long value);
+	public long setLong(int index, long value, long storage);
 
-	public void setInt(int index, long value);
+	public long setInt(int index, int value, long storage);
 
-	public void setQuickLong(int index, long value);
+	public long setQuickLong(int index, long value, long storage);
 
-	public void setQuickInt(int index, long value);
+	public long setQuickInt(int index, long value, long storage);
 
 	public void setLong(long[] array, int arrayIndex, int index, long value);
 
@@ -18,13 +18,13 @@ interface BitStorageI {
 
 	public void setQuickInt(long[] array, int arrayIndex, int index, long value);
 
-	public long getLong(int index);
+	public long getLong(int index, long storage);
 
-	public int getInt(int index);
+	public int getInt(int index, long storage);
 
-	public long getQuickLong(int index);
+	public long getQuickLong(int index, long storage);
 
-	public int getQuickInt(int index);
+	public int getQuickInt(int index, long storage);
 
 	public long getLong(long[] array, int arrayIndex, int index);
 
