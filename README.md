@@ -4,9 +4,9 @@ Tuple packing allows you to store several integers that can be encoded with diff
 
 Example : you want to store  3-tuples consisting of unsigned integers that 
 can be respectively encoded in 3, 3 and 2 bits. 
-Let the first tuple contains the following values : [7,5,2]. 
+
+Let the first tuple contains the following values : [7,5,2], this would be stored as follows into a single byte
 ```
-This would be stored as follows into a single byte
 Positions : 012|345|67
 Values    : 111|101|10
 ```
