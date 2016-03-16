@@ -102,7 +102,7 @@ interface BitStorageI {
 	 * @return the long value stored in the field <code>index</code> in
 	 *         <code>storage</code>
 	 */
-	public long getQuickLong(int index, long storage);
+	public long getQuick(int index, long storage);
 
 	/**
 	 * Similar to {@link #getInt(int, long)} without checks; higher performance
